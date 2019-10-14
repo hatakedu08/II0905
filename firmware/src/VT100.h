@@ -36,12 +36,20 @@ void uartHexaPrint(uint8_t * val,uint8_t n);
 
 
 
+
+
 /*********************************************
  *           Commandes VT100             
  *********************************************/
 void vT100EraseEndOfLine(void);
-
-
+void erase(void);
+void scroll(void);
+void SavRes(void);
+void Res(void);
+void def(int,int);
+void cursor(int row,int column);
+void color(void);
+void LockKeyboard(bool s);
 
 
 #define uartPrint(x) _uartPrint((char*)x)

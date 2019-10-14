@@ -108,11 +108,9 @@ void uartHexaPrint(uint8_t * val,uint8_t n){
 /***                                ***/
 /**************************************/
 
-// A FAIRE
-
-
-
-
+void erase(void){
+    _uartPrint("\x1b[2J");
+}
 
 
 /**************************************/
@@ -120,6 +118,9 @@ void uartHexaPrint(uint8_t * val,uint8_t n){
 /*** de scrolling                   ***/
 /**************************************/
 
+void def(int start, int end){
+    _uartPrint("\x1b[{start};{end}r");
+}
 // A FAIRE
 
 
@@ -127,9 +128,9 @@ void uartHexaPrint(uint8_t * val,uint8_t n){
 /*** VT100 Scroll d'une ligne       ***/
 /*** vers le bas                    ***/
 /**************************************/
-
-// A FAIRE
-
+void scroll(void){
+    _uartPrint("\x1b[D");
+}
 
 
 
@@ -139,9 +140,7 @@ void uartHexaPrint(uint8_t * val,uint8_t n){
 /*** fin de ligne                   ***/
 /**************************************/
 void vT100EraseEndOfLine(void){
-
-// A FAIRE
-
+    _uartPrint("\x1b[OK");
 }
 
 
@@ -150,8 +149,12 @@ void vT100EraseEndOfLine(void){
 /*** VT100 sauvegarde et            ***/
 /*** restauration du curseur        ***/
 /**************************************/
-
-// A FAIRE
+void Sav(void){
+    _uartPrint("\x1b[s");
+}
+void Res(void){
+    _uartPrint("\x1b[u");
+}
 
 
 
@@ -159,8 +162,10 @@ void vT100EraseEndOfLine(void){
 /**************************************/
 /*** VT100 placement curseur        ***/
 /**************************************/
+void cursor(int row,int column){
+    _uartPrint("\x1b[{row};{column}f");
+}
 
-// A FAIRE
 
 
 
@@ -168,13 +173,20 @@ void vT100EraseEndOfLine(void){
 /**************************************/
 /*** VT100 changement couleur       ***/
 /**************************************/
+void color(void){
+    _uartPrint("\x1b[31m");
+}
 
-// A FAIRE
 
 
 /**************************************/
 /*** Lock/Unlock clavier            ***/
 /**************************************/
+
+void LockKeyboard(bool s){
+    
+
+}
 
 // A FAIRE
 
